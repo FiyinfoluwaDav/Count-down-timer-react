@@ -72,8 +72,9 @@ export default function CountdownTimer() {
   }
 
   return (
-    <div>
-      {endScreen.show && <h1>{endScreen.message}</h1>}
+    <div className="timer-card">
+      {endScreen.show && <div className="end-screen">{endScreen.message}</div>}
+
       <Timer
         milliSeconds={milliSeconds}
         seconds={seconds}
@@ -83,21 +84,23 @@ export default function CountdownTimer() {
         changeMinutes={changeMinutes}
         changeSeconds={changeSeconds}
       />
-      <br />
-      {!isRunning ? (
-        <button onClick={startTimer}>
-          <BsFillPlayFill />
-        </button>
-      ) : (
-        <>
-          <button onClick={pauseTimer}>
-            <BsPauseFill />
+
+      <div className="controls">
+        {!isRunning ? (
+          <button className="btn" onClick={startTimer} aria-label="start">
+            <BsFillPlayFill />
           </button>
-          <button onClick={stopTimer}>
-            <BsStopFill />
-          </button>
-        </>
-      )}
+        ) : (
+          <>
+            <button className="btn" onClick={pauseTimer} aria-label="pause">
+              <BsPauseFill />
+            </button>
+            <button className="btn secondary" onClick={stopTimer} aria-label="stop">
+              <BsStopFill />
+            </button>
+          </>
+        )}
+      </div>
     </div>
   );
 }
