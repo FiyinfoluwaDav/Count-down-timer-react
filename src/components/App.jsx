@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import CountdownTimer from "./CountdownTimer";
+import Footer from "./Footer";
 
 function App() {
   const [theme, setTheme] = useState(() => {
@@ -22,6 +23,7 @@ function App() {
   return (
     <div className="app">
       <CountdownTimer theme={theme} toggleTheme={toggleTheme} />
+      <Footer />
     </div>
   );
 }
