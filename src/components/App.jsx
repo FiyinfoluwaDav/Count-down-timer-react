@@ -21,10 +21,12 @@ function App() {
   }
 
   return (
-    <div className="app">
-      <CountdownTimer theme={theme} toggleTheme={toggleTheme} />
+    <>
+      <div className="app">
+        <CountdownTimer theme={theme} toggleTheme={toggleTheme} />
+      </div>
       <Footer />
-    </div>
+    </>
   );
 }
 

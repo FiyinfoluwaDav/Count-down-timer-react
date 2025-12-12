@@ -3,8 +3,8 @@
 :root{
   --bg1: #071124;
   --bg2: #081028;
-  --accent1: #7c3aed;
-  --accent2: #06b6d4;
+  --accent1: #4136df;
+  --accent2: #3c1ea8;
   --muted: rgba(255,255,255,0.6);
   --muted-border: rgba(255,255,255,0.06);
   --text-color: #fff;
@@ -33,7 +33,7 @@ body::after{
 
 .app{
   min-height:100vh;
-  display:flex;align-items:center;justify-content:center;padding:2rem;
+  display:flex;align-items:center;justify-content:center;padding:2rem;padding-bottom:6rem;flex-direction:column;
 }
 
 .timer-card{
@@ -130,8 +130,8 @@ body::after{
 body.light{
   --bg1: #f6f8fb;
   --bg2: #eef3f8;
-  --accent1: #5b21b6;
-  --accent2: #0ea5a4;
+  --accent1: #4136df;
+  --accent2: #3c1ea8;
   --card-bg: rgba(255,255,255,0.95);
   --muted: rgba(17,24,39,0.6);
   --muted-border: rgba(17,24,39,0.08);
@@ -150,9 +150,9 @@ body{transition:background 220ms ease,color 220ms ease}
 }
 
 /* Footer + socials */
-.footer{width:100%;display:flex;justify-content:center;margin-top:1rem}
+.footer{width:100%;display:flex;justify-content:center;position:fixed;left:0;right:0;bottom:18px;margin:0;pointer-events:auto}
 .footer-inner{display:flex;gap:12px;align-items:center}
-.social-link{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:8px;transition:transform 160ms, background-color 160ms;color:var(--muted);background:transparent;border:1px solid transparent}
+.social-link{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:10px;transition:transform 160ms, background-color 160ms,color 160ms;color:var(--muted);background:transparent;border:1px solid transparent}
 .social-link:hover{transform:translateY(-4px);color:var(--text-color)}
 .social-icon{width:18px;height:18px;display:block;color:inherit}
 .social-link:hover .social-icon{color:var(--accent2)}
