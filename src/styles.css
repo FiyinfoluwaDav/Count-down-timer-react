@@ -5,8 +5,9 @@
   --bg2: #081028;
   --accent1: #7c3aed;
   --accent2: #06b6d4;
-  --card-bg: rgba(255,255,255,0.03);
   --muted: rgba(255,255,255,0.6);
+  --muted-border: rgba(255,255,255,0.06);
+  --text-color: #fff;
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
@@ -14,16 +15,15 @@ html,body,#root{height:100%;}
 body{
   font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
   background: linear-gradient(180deg,var(--bg1), var(--bg2));
-  color: #fff;
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
 }
+.inputs input{min-width:66px;padding:10px 12px;border-radius:8px;border:1px solid var(--muted-border);background:transparent;color:var(--text-color);font-weight:600;font-size:16px;text-align:center}
 
 /* subtle hero image overlay from the preview */
 body::after{
   content:'';
   position:fixed;inset:0;z-index:-1;
-  background-image: url('./assets/images/bg-stars.svg');
   background-repeat:no-repeat;
   background-position:50% 10%;
   background-size:cover;
@@ -38,25 +38,25 @@ body::after{
 
 .timer-card{
   width:100%;max-width:700px;padding:2.2rem;border-radius:18px;background:var(--card-bg);
-  border:1px solid rgba(255,255,255,0.05);box-shadow:0 10px 30px rgba(2,6,23,0.7);
+  border:1px solid var(--muted-border);box-shadow:0 10px 30px rgba(2,6,23,0.7);
   display:flex;flex-direction:column;align-items:center;gap:1.25rem;
   backdrop-filter: blur(8px);
 }
 
-.top-row{display:flex;align-items:center;gap:12px;width:100%;justify-content:flex-start}
+.top-row{display:flex;align-items:center;gap:12px;width:100%;justify-content:space-between}
 .timer-title{font-size:20px;font-weight:700;color:var(--muted)}
 .timer-icon{opacity:0.9;}
 
 .timer-display{display:flex;gap:0.9rem;align-items:center;justify-content:center;width:100%;}
 .segment{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:110px;padding:18px 14px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);border:1px solid rgba(255,255,255,0.04);}
-.value{font-size:64px;font-weight:800;letter-spacing:4px;color:#fff;}
+.value{font-size:64px;font-weight:800;letter-spacing:4px;color:var(--text-color);}
 .time-input{background:transparent;border:none;color:inherit;font-weight:800;font-size:64px;text-align:center;width:86px;outline:none}
 .time-input[readonly]{opacity:0.8}
 .label{margin-top:6px;font-size:13px;color:var(--muted);}
 
 .controls{display:flex;gap:12px;margin-top:8px;align-items:center}
-.btn{display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:12px;border:none;cursor:pointer;font-size:18px;background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#fff;box-shadow:0 6px 18px rgba(4,7,18,0.6);}
-.btn.secondary{background:transparent;border:1px solid rgba(255,255,255,0.06);width:auto;padding:10px 14px;border-radius:10px}
+.btn{display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:12px;border:none;cursor:pointer;font-size:18px;background:linear-gradient(90deg,var(--accent1),var(--accent2));color:var(--text-color);box-shadow:0 6px 18px rgba(4,7,18,0.6);}
+.btn.secondary{background:transparent;border:1px solid var(--muted-border);width:auto;padding:10px 14px;border-radius:10px}
 .time-input:focus{outline:none;box-shadow:0 8px 20px rgba(7,20,60,0.3)}
 .segment:hover{transform:translateY(-4px);transition:transform 160ms}
 .btn:active{transform:translateY(1px)}
@@ -64,10 +64,83 @@ body::after{
 .inputs{display:flex;gap:10px;align-items:center;}
 .inputs .field{display:flex;flex-direction:column;align-items:center;gap:6px}
 .inputs label{font-size:12px;color:var(--muted)}
-.inputs input{min-width:66px;padding:10px 12px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:#fff;font-weight:600;font-size:16px;text-align:center}
+.inputs input{min-width:66px;padding:10px 12px;border-radius:8px;border:1px solid var(--muted-border);background:transparent;color:var(--text-color);font-weight:600;font-size:16px;text-align:center}
 .inputs input[type=number]::-webkit-inner-spin-button, .inputs input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
 
 .end-screen{font-size:18px;color:var(--accent2);margin-bottom:6px}
+
+/* Toggle switch (provided) */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+  margin: 0 0.75rem;
+}
+.toggle-switch input[type="checkbox"] {
+  display: none;
+}
+.toggle-switch .switch {
+  position: absolute;
+  cursor: pointer;
+  background-color: #b6b6b6;
+  border-radius: 25px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transition: background-color 0.2s ease;
+  z-index: 1;
+}
+.toggle-switch .switch .knob{
+  z-index: 3; /* knob above icons */
+  position: absolute;
+  left: 2px;top:2px;width:21px;height:21px;background-color:#333;border-radius:50%;
+  transition: transform 0.25s cubic-bezier(0.2, 1, 0.2, 1), background-color 180ms;
+}
+.toggle-switch .switch .knob .icon{
+  position:absolute;
+  top:50%;
+  transform:translate(-50%,-50%);
+  width:12px;height:12px;display:block;line-height:0;color:var(--muted);opacity:0.9;
+  transition:opacity 180ms, transform 180ms, color 180ms;
+  pointer-events:none;
+  z-index: 2;
+}
+.toggle-switch .switch .knob .sun{left:50%;}
+.toggle-switch .switch .knob .moon{left:50%;}
+.toggle-switch .switch .knob {
+  /* knob layout already defined above */
+}
+.toggle-switch input[type="checkbox"]:checked + .switch .knob {
+  transform: translateX(25px);
+  background-color: #fff;
+}
+.toggle-switch input[type="checkbox"]:checked + .switch {
+  background-color: var(--accent1);
+}
+
+/* Icon visibility when toggled */
+.toggle-switch input[type="checkbox"] + .switch .knob .sun{opacity:0;transform:translate(-50%,-50%) scale(0.9);}
+.toggle-switch input[type="checkbox"]:checked + .switch .knob .sun{opacity:1;transform:translate(-50%,-50%) scale(1.05);color:var(--accent2)}
+.toggle-switch input[type="checkbox"] + .switch .knob .moon{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.toggle-switch input[type="checkbox"]:checked + .switch .knob .moon{opacity:0;transform:translate(-50%,-50%) scale(0.9)}
+
+/* Light theme overrides */
+body.light{
+  --bg1: #f6f8fb;
+  --bg2: #eef3f8;
+  --accent1: #5b21b6;
+  --accent2: #0ea5a4;
+  --card-bg: rgba(255,255,255,0.95);
+  --muted: rgba(17,24,39,0.6);
+  --muted-border: rgba(17,24,39,0.08);
+  --text-color: #0b1220;
+  color: #0b1220;
+}
+
+/* Ensure transitions when theme changes */
+body{transition:background 220ms ease,color 220ms ease}
 
 @media (max-width:600px){
   .value{font-size:44px}

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Timer from "./Timer";
 import { BsFillPlayFill, BsPauseFill, BsStopFill } from "react-icons/bs";
 
-export default function CountdownTimer() {
+export default function CountdownTimer({ theme, toggleTheme }) {
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
@@ -83,6 +83,8 @@ export default function CountdownTimer() {
         changeHours={changeHours}
         changeMinutes={changeMinutes}
         changeSeconds={changeSeconds}
+        theme={theme}
+        toggleTheme={toggleTheme}
       />
 
       <div className="controls">
