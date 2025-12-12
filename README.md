@@ -9,7 +9,7 @@ A minimal, responsive countdown timer built with React. The app supports dark an
 UI with theme toggle and footer social icons:
 
 ![Dark Mode](preview/dark-preview.png)
-![Light Mode](preview/dark-preview.png)
+![Light Mode](preview/light-preview.png)
 
 ---
 
