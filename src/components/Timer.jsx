@@ -1,5 +1,4 @@
 import React from "react";
-import { BsStopwatch } from "react-icons/bs";
 import ThemeToggle from "./ThemeToggle";
 
 export default function Timer({
@@ -16,7 +15,6 @@ export default function Timer({
   return (
     <div className="timer">
       <div className="top-row">
-        <BsStopwatch className="timer-icon" size={26} />
         <div className="timer-title">Countdown Timer</div>
         <div style={{ marginLeft: 'auto' }}>
           <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
