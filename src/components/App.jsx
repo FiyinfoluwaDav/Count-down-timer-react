@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Analytics } from "@vercel/analytics/react"
 import CountdownTimer from "./CountdownTimer";
 import Footer from "./Footer";
 
