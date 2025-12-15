@@ -27,7 +27,6 @@ function App() {
         <CountdownTimer theme={theme} toggleTheme={toggleTheme} />
       </div>
       <Footer />
-      <Analytics />
     </>
   );
 }
